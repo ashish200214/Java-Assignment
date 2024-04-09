@@ -1,0 +1,1683 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Java Assignment final</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b896e29e-9619-4313-86ed-51785b9b5520" class="page sans"><header><h1 class="page-title">Java Assignment final</h1><p class="page-description"></p></header><div class="page-body"><h3 id="c0e79caa-bfb1-4d5f-9a68-04c4caf721d8" class="">Q1. Write a program to demonstrate multi-threading using Thread Class.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="488dbf56-15dc-4572-a22a-792afba044df" class="code"><code class="language-Java">package mypack;
+
+public class Q1 extends Thread{
+
+	@Override
+	public void run() {
+		System.out.println(&quot;Hello i am one thread my name is &quot;+Thread.currentThread().getName());	
+		}
+	public static void main(String[] args) {
+		Q1 objQ1  = new Q1();
+		objQ1.start();
+	}
+
+}
+</code></pre><h3 id="2cbc8618-e937-40a3-ab9b-6249c52efc16" class="">Output :-</h3><figure id="66c087eb-f807-4288-93a8-06ba610bf767" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q1.png"><img style="width:640px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q1.png"/></a></figure><p id="2978aa38-0e86-45ab-a6d4-c69f3f641627" class="">
+</p><h3 id="7ceb9d06-7c72-4c07-a287-bd0bdafef2f9" class="">Q2.Write java program to implement Runnable interface?</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d3f4eced-4c52-4244-bdb5-3c9a58b466fb" class="code"><code class="language-Java">package mypack;
+
+public class Q2 implements Runnable{
+	@Override
+	public void run() {
+		System.out.println(&quot;Hello im implemented using Runnable interface...&quot;);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Q2 objQ2 = new Q2();
+		Thread t1 = new Thread(objQ2);
+		t1.start();
+	}
+
+}
+</code></pre><h3 id="6ddc8f79-34f9-43f0-8cb7-5b7f637d0c4a" class="">Output :-</h3><p id="e8426356-adbb-4480-8bfc-445158ddf8c2" class=""> </p><figure id="8a0c6c86-97ae-46c7-99a3-5b1f34a5a97b" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q2.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q2.png"/></a></figure><p id="27f301c5-ad5d-4bd5-b97a-34c0b11e7fbc" class="">
+</p><h3 id="e0043429-9986-4523-995d-1f0375eb40c8" class="">Q3. Write java program for demonstrating concept of Thread synchronization.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d76c3b82-fdea-450c-9972-5e89264718e3" class="code"><code class="language-Java">package mypack;
+import java.io.*;
+import java.util.*;
+
+// A Class used to send a message
+class Sender {
+	public void send(String msg)
+	{
+		System.out.println(&quot;Sending\t&quot; + msg);
+		try {
+			Thread.sleep(1000);
+		}
+		catch (Exception e) {
+			System.out.println(&quot;Thread interrupted.&quot;);
+		}
+		System.out.println(&quot;\n&quot; + msg + &quot;Sent&quot;);
+	}
+}
+
+// Class for send a message using Threads
+class ThreadedSend extends Thread {
+	private String msg;
+	Sender sender;
+
+	// Receives a message object and a string
+	// message to be sent
+	ThreadedSend(String m, Sender obj)
+	{
+		msg = m;
+		sender = obj;
+	}
+
+	public void run()
+	{
+		// Only one thread can send a message
+		// at a time.
+		synchronized (sender)
+		{
+			// synchronizing the send object
+			sender.send(msg);
+		}
+	}
+}
+
+// Driver class
+class Q3 {
+	public static void main(String args[])
+	{
+		Sender send = new Sender();
+		ThreadedSend S1 = new ThreadedSend(&quot; Hi &quot;, send);
+		ThreadedSend S2 = new ThreadedSend(&quot; Bye &quot;, send);
+
+		// Start two threads of ThreadedSend type
+		S1.start();
+		S2.start();
+
+		// wait for threads to end
+		try {
+			S1.join();
+			S2.join();
+		}
+		catch (Exception e) {
+			System.out.println(&quot;Interrupted&quot;);
+		}
+	}
+}
+</code></pre><h3 id="2953bbfb-707e-45d9-a319-5aa46f123fb0" class="">Output :- </h3><figure id="8e40272f-d204-40e1-892e-71e7aae598b0" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q3.png"><img style="width:598px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q3.png"/></a></figure><p id="a1970f68-bdbb-4f76-a271-e90d96f7a205" class="">
+</p><h3 id="dc6c9de4-a723-4aab-90f3-94ecaede9f94" class="">Q4. Write java code for implementing the following Inter-thread communication methods:<br/>usingwait(), notify(), notifyAll()<br/></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="142ce08a-cd1b-43d7-b61c-94a031093170" class="code"><code class="language-Java">package mypack;
+class Data {
+    private int number;
+    private boolean isValueSet = false;
+
+    public synchronized void produce(int num) {
+        // Wait until consumer consumes the value
+        while (isValueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        number = num;
+        System.out.println(&quot;Produced: &quot; + num);
+        isValueSet = true;
+        // Notify the consumer that value is ready
+        notify();
+    }
+
+    public synchronized void consume() {
+        // Wait until producer produces the value
+        while (!isValueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(&quot;Consumed: &quot; + number);
+        isValueSet = false;
+        // Notify the producer that value is consumed
+        notify();
+    }
+}
+
+public class Q4 {
+    public static void main(String[] args) {
+        final Data data = new Data();
+
+        // Producer thread
+        Thread producerThread = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 5; i++) {
+                data.produce(i);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Consumer thread
+        Thread consumerThread = new Thread(() -&gt; {
+            for (int i = 0; i &lt; 5; i++) {
+                data.consume();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Start both threads
+        producerThread.start();
+        consumerThread.start();
+    }
+}
+
+</code></pre><h3 id="e22bed83-d6d6-4399-8be8-a2e934a9bfc1" class="">Output :- </h3><figure id="4ec95930-7fc2-4191-b6ac-45b06617ef6e" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q4.png"><img style="width:695px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q4.png"/></a></figure><p id="eb9db43d-a9d6-4786-894d-377989f62b95" class="">
+</p><h3 id="5f96f54c-4772-4b64-8310-04c46cbeb000" class="">Q5. Develop java programs to implement Simple generic class and methods.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a8301b3d-4788-4ac7-bcd2-cf13e344ae7d" class="code"><code class="language-Java">//simple generic method and class
+package mypack;
+
+
+ class genericClass&lt;T&gt;{
+	 //generic method.
+	 public static &lt;T&gt;void print(T arr[]) {
+		 System.out.println();
+		 for(T element:arr) {
+				System.out.println(element);
+			}
+	 }
+ }
+public class Q5 {
+	
+	//generic method.
+	public static &lt;T&gt; void printArray(T[]arr) {
+		
+	}
+	public static void main(String[] args) {
+		Integer a[] = {1,2,3,4,5,6};
+		genericClass.print(a);
+		String st[]= {&quot;abcd&quot;,&quot;efgh&quot;};
+		genericClass.print(st);
+	}
+</code></pre><h3 id="7d55f3ab-d1fb-4577-85b9-1c4455317072" class="">Output :- </h3><figure id="4f6b3f1f-7d5f-4a01-9609-da888bea6a6a" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q5.png"><img style="width:637px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q5.png"/></a></figure><p id="291fa844-1290-4d3a-9ca0-4d0602714a9f" class="">
+</p><h3 id="81a2c244-356c-4ab1-bb65-e158b42b99e8" class="">Q6. Write java programs to demonstrate concept of ArrayList, Vector and LinkedList.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c9ee5c4f-e3ab-477f-ba44-b2b3346b8e67" class="code"><code class="language-Java">import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
+
+public class Q6 {
+    public static void main(String[] args) {
+        // ArrayList Example
+        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();
+        arrayList.add(&quot;Apple&quot;);
+        arrayList.add(&quot;Banana&quot;);
+        arrayList.add(&quot;Orange&quot;);
+
+        System.out.println(&quot;ArrayList Example:&quot;);
+        for (String fruit : arrayList) {
+            System.out.println(fruit);
+        }
+
+        // Vector Example
+        Vector&lt;Integer&gt; vector = new Vector&lt;&gt;();
+        vector.add(10);
+        vector.add(20);
+        vector.add(30);
+
+        System.out.println(&quot;\nVector Example:&quot;);
+        for (int num : vector) {
+            System.out.println(num);
+        }
+
+        // LinkedList Example
+        LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+        linkedList.add(&quot;Red&quot;);
+        linkedList.add(&quot;Green&quot;);
+        linkedList.add(&quot;Blue&quot;);
+
+        System.out.println(&quot;\nLinkedList Example:&quot;);
+        for (String color : linkedList) {
+            System.out.println(color);
+        }
+    }
+}
+</code></pre><h3 id="3c3a87e0-462c-41f2-a5f1-3c6594da3958" class="">Output :-</h3><figure id="f2087d0f-8205-44fc-a43b-12c39edded4a" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q6.png"><img style="width:606px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q6.png"/></a></figure><h3 id="5a0e0365-41c9-47b6-961c-3a9b8cd2e859" class="">Q7. . Write java code to implement Iterator to access collection elements</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fabd0ffc-f709-4040-9db4-cc9db77bff7a" class="code"><code class="language-Java">Q7.
+package mypack;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Q8 {
+
+	public static void print(Iterator it) {
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		
+	}
+	public static void main(String[] args) {
+		//creating arrayList
+		ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;&gt;();
+		arrayList.add(19);
+		arrayList.add(29);
+		arrayList.add(30);
+		
+		Iterator it1 = arrayList.iterator();
+		print(it1);
+
+	}
+
+}
+</code></pre><h3 id="683d0df7-cf24-4877-a807-af36c6102043" class="">Output :- </h3><figure id="6d769f32-351c-42e5-8a81-e3365caa6c37" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q8.png"><img style="width:605px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q8.png"/></a></figure><h3 id="07f80151-6bfb-4479-8d23-73ec58c85bd3" class="">Q8. Write java programs to demonstrate concept of HasSet, LinkedHashSet and TreeSet.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="26f11b6f-41a1-429c-b047-3605a9f5cbf6" class="code"><code class="language-Java">package mypack;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+public class Q9 {
+    public static void main(String[] args) {
+        // HashSet demonstration
+        HashSet&lt;String&gt; hashSet = new HashSet&lt;&gt;();
+        hashSet.add(&quot;Apple&quot;);
+        hashSet.add(&quot;Banana&quot;);
+        hashSet.add(&quot;Orange&quot;);
+
+        System.out.println(&quot;HashSet:&quot;);
+        for (String fruit : hashSet) {
+            System.out.println(fruit);
+        }
+
+        // LinkedHashSet demonstration
+        LinkedHashSet&lt;String&gt; linkedHashSet = new LinkedHashSet&lt;&gt;();
+        linkedHashSet.add(&quot;Red&quot;);
+        linkedHashSet.add(&quot;Green&quot;);
+        linkedHashSet.add(&quot;Blue&quot;);
+
+        System.out.println(&quot;\nLinkedHashSet:&quot;);
+        for (String color : linkedHashSet) {
+            System.out.println(color);
+        }
+
+        // TreeSet demonstration
+        TreeSet&lt;String&gt; treeSet = new TreeSet&lt;&gt;();
+        treeSet.add(&quot;Dog&quot;);
+        treeSet.add(&quot;Cat&quot;);
+        treeSet.add(&quot;Bird&quot;);
+
+        System.out.println(&quot;\nTreeSet:&quot;);
+        for (String animal : treeSet) {
+            System.out.println(animal);
+        }
+    }
+}
+</code></pre><h3 id="347d2adc-5bea-47d0-bd3f-3fcab8ccb7a0" class="">Output :- </h3><figure id="15087eb2-58d9-497b-a2bf-e8878a023d3f" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q9.png"><img style="width:608px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q9.png"/></a></figure><p id="241edb66-ec34-40e2-97dc-351297235c57" class="">
+</p><h3 id="d569bbd0-562d-49b4-865f-2ca20936eaec" class="">Q9. Implement jdbc connectivity to insert records and delete records into a table. </h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a0d8d215-b741-4012-81c4-a8d89933b286" class="code"><code class="language-Java">package jdbcprog;
+import java.sql.*;
+
+public class InsertingAndDeleting {
+
+	//establishing connection
+	public static Connection getConn() throws SQLException {
+		Connection con=DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+		return con;
+	}
+	
+	public static void insertRecord(String name,int roll) {
+		try {
+			Connection con = getConn();
+			PreparedStatement st=con.prepareStatement(&quot;insert into student values(?,?);&quot;);
+			st.setString(1,name);
+			st.setInt(2,roll);
+			st.executeUpdate();
+			System.out.println(&quot;record inserted successfully...&quot;);
+			printData();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public static void printData() {
+		try {
+			Connection con = getConn();
+			Statement st = con.createStatement();
+			ResultSet rs=st.executeQuery(&quot;select * from student;&quot;);
+			while(rs.next()) {
+				System.out.print(rs.getString(1)+&quot; &quot;);
+				System.out.print(rs.getInt(2));
+				System.out.println(&quot;&quot;);
+				System.out.println(&quot;=========================&quot;);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public static void deleteRecord(int roll) {
+		try {
+			Connection con = getConn();
+			PreparedStatement st=con.prepareStatement(&quot;delete from student where rollno=?;&quot;);
+			st.setInt(1,roll);
+			st.executeUpdate();
+			System.out.println(&quot;record deleted successfully...&quot;);
+			printData();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void main(String[] args) {
+		try {
+			Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+			insertRecord(&quot;ashish&quot;,10);
+			insertRecord(&quot;suyash&quot;,20);
+			insertRecord(&quot;Saroj&quot;,30);
+			
+			deleteRecord(10);
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+</code></pre><h3 id="f577e7d6-59db-4e47-9445-4aad7b736150" class="">Output :- </h3><figure id="3f8c6046-a906-4ff5-894d-31fa97862f76" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q10.png"><img style="width:650px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q10.png"/></a></figure><p id="14ed4b2e-35e3-4482-b699-5fba2fde42e7" class="">
+</p><h3 id="18a899b9-f293-4d5d-8d3a-7fbeb4a4c5b6" class="">Q10. . Implement jdbc connectivity to demonstrate PreparedStatement.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="29805ce5-630a-41b9-80b4-c4d97d23f5c3" class="code"><code class="language-Java">package jdbcprog;
+import java.sql.*;
+
+public class Q11 {
+
+	//establishing connection
+	public static Connection getConn() throws SQLException {
+		Connection con=DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+		return con;
+	}
+	
+	public static void insertRecord(String name,int roll) {
+		try {
+			Connection con = getConn();
+//PreparedStatement
+			PreparedStatement st=con.prepareStatement(&quot;insert into student values(?,?);&quot;);
+			st.setString(1,name);
+			st.setInt(2,roll);
+			st.executeUpdate();
+			System.out.println(&quot;record inserted successfully...&quot;);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public static void printData() {
+		try {
+			Connection con = getConn();
+			Statement st = con.createStatement();
+			ResultSet rs=st.executeQuery(&quot;select * from student;&quot;);
+			while(rs.next()) {
+				System.out.print(rs.getString(1)+&quot; &quot;);
+				System.out.print(rs.getInt(2));
+				System.out.println(&quot; &quot;);
+				System.out.println(&quot;=========================&quot;);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		try {
+			Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+			insertRecord(&quot;ashish&quot;,10);
+			
+		
+			printData();
+
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+</code></pre><h3 id="ec93940d-69db-45ba-8d4e-b2658a4574ec" class="">Output :- </h3><figure id="58820a44-75dd-40cd-9fd3-b8c67b53e571" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q11.png"><img style="width:927px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q11.png"/></a></figure><p id="32be796a-38ec-497b-b610-99d52e110fb2" class="">
+</p><h3 id="06022c66-797d-4178-b9c3-63a0e6cb2bb3" class="">Q11. Write java code to demonstrate stored procedures with Callable Statement. </h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="46ba013f-8b9d-4300-a205-bbde170f774a" class="code"><code class="language-Java">package jdbcprog;
+import java.sql.*;
+
+public class Q12 {
+
+    // Establishing connection
+    public static Connection getConn() throws SQLException {
+        Connection con=DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+        return con;
+    }
+
+    // Inserting record using PreparedStatement
+    public static void insertRecord(String name, int roll) {
+        try {
+            Connection con = getConn();
+            PreparedStatement st=con.prepareStatement(&quot;insert into student values(?,?);&quot;);
+            st.setString(1, name);
+            st.setInt(2, roll);
+            st.executeUpdate();
+            System.out.println(&quot;Record inserted successfully...&quot;);
+            printData();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    // Printing data from the student table
+    public static void printData() {
+        try {
+            Connection con = getConn();
+            Statement st = con.createStatement();
+            ResultSet rs=st.executeQuery(&quot;select * from student;&quot;);
+            while(rs.next()) {
+                System.out.print(rs.getString(1)+&quot; &quot;);
+                System.out.print(rs.getInt(2));
+                System.out.println();
+            }
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    // Deleting record using PreparedStatement
+    public static void deleteRecord(int roll) {
+        try {
+            Connection con = getConn();
+            PreparedStatement st=con.prepareStatement(&quot;delete from student where rollno=?;&quot;);
+            st.setInt(1, roll);
+            st.executeUpdate();
+            System.out.println(&quot;Record deleted successfully...&quot;);
+            printData();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    // Example of using CallableStatement to call a stored procedure
+    public static void callStoredProcedure(int roll) {
+        try {
+            Connection con = getConn();
+            CallableStatement cst = con.prepareCall(&quot;{call delete_student(?)}&quot;);
+            cst.setInt(1, roll);
+            cst.executeUpdate();
+            System.out.println(&quot;Stored procedure executed successfully...&quot;);
+            printData();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+            
+            // Inserting a record
+            insertRecord(&quot;ashish&quot;, 10);
+            
+           
+           
+            // Deleting a record using a stored procedure and CallableStatement
+            callStoredProcedure(10);
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+</code></pre><h3 id="ac97a517-7080-4974-8665-b3590b1498f2" class="">Output :-  </h3><figure id="c04593d8-8b2c-4c8b-8f4c-3746d8773b0d" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q111.png"><img style="width:608px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q111.png"/></a></figure><h3 id="b8892b87-82bc-4279-bc6d-5a4cee66a61d" class="">Q12. . Write java code to implement concept of Scrollable and updatable result sets.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8fcbeb9f-3151-4a26-a082-d64d0c94730d" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package mypack;
+import java.sql.*;
+public class Q12 {
+
+    public static void main(String[] args) {
+        try {
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+            Connection connect = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+            Statement stmt = connect.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            ResultSet result = stmt.executeQuery(&quot;SELECT * from student&quot;);
+
+            // Check if ResultSet is updatable
+            //note : table must contain the primary key.
+            if (!result.getMetaData().isReadOnly(1)) {
+                while(result.next()) {
+                    int no = result.getInt(&quot;registerNo&quot;);
+                    String pass = result.getString(&quot;password&quot;);
+                    System.out.println(&quot;Registration No: &quot; + no + &quot; Password: &quot; + pass);
+                }
+
+                // Move to the last row
+                result.last();
+
+                // Update password
+                result.updateString(&quot;password&quot;, &quot;ashish&quot;);
+                result.updateRow();
+
+                // Insert new row
+                result.moveToInsertRow();
+                result.updateInt(&quot;registerNo&quot;, 43424);
+                result.updateString(&quot;password&quot;, &quot;abcd&quot;);
+                result.insertRow();
+                System.out.println(&quot;Operation done successfully&quot;);
+            } else {
+                System.out.println(&quot;ResultSet is not updatable&quot;);
+            }
+
+            result.close();
+            stmt.close();
+            connect.close();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+</code></pre><h3 id="012c60a5-4ea1-4200-856f-0c984236b88a" class="">Output :-    </h3><figure id="e58e2003-af12-4ebb-9183-1781553b0885" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12a.png"><img style="width:405px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12a.png"/></a></figure><figure id="5c6c8483-4df5-4d2f-bb7c-30e647db7626" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12b.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12b.png"/></a></figure><figure id="69978237-5aca-4637-ab78-417045d3c3f7" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12c.png"><img style="width:406px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q12c.png"/></a></figure><p id="818bea10-70de-4ccc-823f-daf386c3355f" class="">
+</p><p id="74d25d3c-00d9-4769-8fbe-3c343b320589" class="">
+</p><h3 id="ea808db5-489b-4348-b4ee-f45543c00c78" class="">Q13. Write java code to Making use of Database Metadata and ResultSetMetadata</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f4a01177-41d9-4238-94f6-c2e6ffcddad9" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package jdbcprog;
+ 
+import java.sql.*;
+ 
+public class Q13 {
+   public static void main(String[] args) {
+       Connection connection = null;
+ 
+       try {
+           // Establish connection
+           connection = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;, &quot;root&quot;, &quot;root&quot;);
+ 
+           // Get Database Metadata
+           DatabaseMetaData dbMetaData = connection.getMetaData();
+ 
+           // Display database information
+           System.out.println(&quot;Database Product Name: &quot; + dbMetaData.getDatabaseProductName());
+           System.out.println(&quot;Database Product Version: &quot; + dbMetaData.getDatabaseProductVersion());
+           System.out.println(&quot;Driver Name: &quot; + dbMetaData.getDriverName());
+           System.out.println(&quot;Driver Version: &quot; + dbMetaData.getDriverVersion());
+ 
+           // Get ResultSet Metadata
+           Statement statement = connection.createStatement();
+           ResultSet resultSet = statement.executeQuery(&quot;SELECT * FROM student&quot;);
+ 
+           ResultSetMetaData rsMetaData = resultSet.getMetaData();
+ 
+           // Display ResultSet Metadata
+           int columnCount = rsMetaData.getColumnCount();
+           System.out.println(&quot;Number of columns: &quot; + columnCount);
+           System.out.println(&quot;Column Details:&quot;);
+ 
+           for (int i = 1; i &lt;= columnCount; i++) {
+               System.out.println(&quot;Column &quot; + i + &quot; Name: &quot; + rsMetaData.getColumnName(i));
+               System.out.println(&quot;Column &quot; + i + &quot; Type: &quot; + rsMetaData.getColumnTypeName(i));
+               System.out.println(&quot;Column &quot; + i + &quot; Size: &quot; + rsMetaData.getColumnDisplaySize(i));
+           }
+ 
+           // Process ResultSet
+           System.out.println(&quot;Data from ResultSet:&quot;);
+           while (resultSet.next()) {
+               System.out.println(&quot;Name: &quot; + resultSet.getString(&quot;name&quot;) + &quot;, Roll: &quot; + resultSet.getInt(&quot;rollno&quot;));
+           }
+       } catch (SQLException e) {
+           e.printStackTrace();
+       } finally {
+           // Close connection
+           try {
+               if (connection != null) {
+                   connection.close();
+               }
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+       }
+   }
+}</code></pre><h3 id="d64fd93c-6cdb-4e83-a733-be4a7721f296" class="">Output :-  </h3><figure id="446d345b-84ed-4fe7-9bfa-85cc80ac6ed9" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q13.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q13.png"/></a></figure><p id="4e68caf9-5857-4a68-824d-e096347fc82e" class="">
+</p><h3 id="cef48ab6-0cbb-42f4-a303-d041f5b7da25" class="">Q14.  Write a servlet program to create a simple servlet and test it.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="06f28434-67a2-4f56-bc6d-fb10e89705a7" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form action=&quot;MyServlet&quot; &gt;
+
+&lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ </code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9931bfb4-2dc6-4963-9833-45a8c4530b6c" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+ 
+@WebServlet(&quot;/MyServlet&quot;)
+public class MyServlet extends HttpServlet{
+public void service(HttpServletRequest req,HttpServletResponse resp) {
+PrintWriter pw=resp.getWriter();
+pw.write(&quot;Hello i am servlet and i am responding...&quot;);
+ 
+}
+}</code></pre><p id="1960631c-e5fe-4afc-8e2e-c8745588b4c0" class=""><strong>Output :</strong></p><p id="6ac64d94-85bb-4508-8d5b-8b0e54f7f112" class=""><strong>By clicking to submit button we will get this following response</strong>.</p><figure id="247aa541-7694-4dc3-a240-1d7c117aebd0" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q14.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q14.png"/></a></figure><p id="e28959c0-1b02-452a-94d5-050200564d68" class="">
+</p><h3 id="d0461e5e-8af1-4a6d-9f2b-417e7dffbf26" class="">Q15. Write a servlet program to read the client request parameters.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d8735225-7855-4c02-b36c-938b72476c54" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form action=&quot;MyServlet&quot; &gt;
+&lt;input name=&quot;uname&quot; placeholder=&quot;Enter name&quot; &gt;
+&lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="487d0a96-fa18-47af-9546-e70616590e79" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+ 
+@WebServlet(&quot;/MyServlet&quot;)
+public class MyServlet extends HttpServlet{
+public void service(HttpServletRequest req,HttpServletResponse resp) {
+String name = req.getParameter(&quot;uname&quot;);
+System.out.println(&quot;Your name is &quot;+name);
+}
+}</code></pre><h3 id="bae0d680-c71e-42d2-83ac-3cb10d1430ee" class="">Output :-</h3><figure id="89d0b4d1-3089-41c5-88c6-521bf1a3ae97" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q15a.png"><img style="width:332px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q15a.png"/></a></figure><figure id="eb708ce2-de2d-40df-89de-cd1759544bd8" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q15b.png"><img style="width:1122px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q15b.png"/></a></figure><p id="e55743a1-3b94-4c3e-806f-932124db9a44" class="">
+</p><p id="09c5599d-5a11-448c-b46f-3e75e999e1be" class="">
+</p><h3 id="c7cd5134-db08-41c1-b38b-82de88f3a496" class="">Q16. Implement a Servlet to generate Multiplication Table for a Number Entered in Html Page.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="30bdba40-6764-47cb-957e-b2695db92ab9" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form action=&quot;MyServlet&quot; &gt;
+&lt;input name=&quot;no&quot; placeholder=&quot;Enter number&quot; &gt;
+&lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1edfbad5-b211-4f9e-a7e4-61b70d3c3515" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">import java.io.IOException;
+import java.io.PrintWriter;
+ 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+ 
+@WebServlet(&quot;/MyServlet&quot;)
+public class MyServlet extends HttpServlet{
+
+ 
+public void service(HttpServletRequest req,HttpServletResponse resp) throws IOException, ServletException {
+int n = Integer.parseInt(req.getParameter(&quot;no&quot;));
+req.setAttribute(&quot;no&quot;,n);
+
+
+//moving to table.jsp page.
+RequestDispatcher rq=req.getRequestDispatcher(&quot;table.jsp&quot;);
+rq.forward(req, resp);
+}
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9f2598f2-510e-469e-8135-f09908a38ec6" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;%
+int n = (Integer)request.getAttribute(&quot;no&quot;);
+
+for(int i=1;i&lt;=10;i++) {
+out.println(n*i);
+}
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="51138720-03e0-4f2e-a09c-0cfcc7cbf169" class="">Output :- </h3><figure id="6d2c8d09-b81a-4724-ae4a-30d275379ec4" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q16a.png"><img style="width:645px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q16a.png"/></a></figure><figure id="394bf647-5f7c-4210-9e04-1aeb5d00708b" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q16b.png"><img style="width:588px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q16b.png"/></a></figure><p id="9e3b9057-0a2e-4a4f-9f29-593e85bd1059" class="">
+</p><h3 id="ce2ada3b-d143-448c-9ef8-451957e0b5f0" class="">Q17. Develop an application/s to demonstrate all the core tags available in JSP (Declaration,<br/>Expression, Directive and Scriptlet Tag).<br/></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17e49a68-3c46-4bb7-890e-6a53e9b7b342" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Core Tags Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;!-- Declaration Tag --&gt;
+&lt;%! int a = 10; %&gt;
+ 
+&lt;!-- Expression Tag --&gt;
+&lt;h2&gt;Expression Tag:&lt;/h2&gt;
+&lt;p&gt;The value of variable &#x27;a&#x27; is &lt;%= a %&gt;&lt;/p&gt;
+ 
+&lt;!-- Directive Tag --&gt;
+&lt;%@ page import=&quot;java.util.Date&quot; %&gt;
+&lt;h2&gt;Directive Tag:&lt;/h2&gt;
+&lt;p&gt;The current date and time is &lt;%= new Date() %&gt;&lt;/p&gt;
+ 
+&lt;!-- Scriptlet Tag --&gt;
+&lt;%
+   String message = &quot;Hello, World!&quot;;
+%&gt;
+&lt;h2&gt;Scriptlet Tag:&lt;/h2&gt;
+&lt;p&gt;&lt;%= message %&gt;&lt;/p&gt;
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+ </code></pre><p id="175e7a59-6e43-44cb-a026-1381b74603c7" class=""><div class="indented"><h3 id="35cd2d77-fe65-48d5-99f8-a8d7e79d3b58" class="">Output :- </h3><figure id="457f51e8-8361-4050-880c-def029b4ad0c" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q17.png"><img style="width:891px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q17.png"/></a></figure><p id="3b56a924-9542-4f14-99a9-01760827f273" class="">
+</p></div></p><h3 id="06e7a58e-a00f-4ca2-8a26-f6a49c6c0c76" class="">Q18. Develop a JSP Application to accept Details from user and store it into the database table.</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8f580f23-e5e6-47b8-b01c-6e27029465b6" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;NewFile1.jsp&quot;&gt;
+&lt;input name=&quot;name&quot; placeholder=&quot;Enter name&quot;&gt;
+&lt;input name=&quot;address&quot; placeholder=&quot;Enter Address&quot;&gt;
+&lt;input name=&quot;mobile&quot; placeholder=&quot;Enter Mobile no.&quot;&gt;
+&lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6623ed10-6700-49e3-863a-0d381efa65ca" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%@ page import=&quot;java.io.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+
+String name = request.getParameter(&quot;name&quot;);
+String address = request.getParameter(&quot;address&quot;);
+String mobile = request.getParameter(&quot;mobile&quot;);
+
+try{
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+
+PrintWriter pw=null;
+pw=response.getWriter();
+ 
+//connection
+Connection connect = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+PreparedStatement prepared=connect.prepareStatement(&quot;insert into info values(?,?,?)&quot;);
+prepared.setString(1,name);
+prepared.setString(2,address);
+prepared.setString(3,mobile);
+if(prepared.executeUpdate()&gt;0){
+pw.write(&quot;Data inserted successfully&quot;);
+}else{
+pw.write(&quot;An error occurred&quot;);
+}
+}
+catch(Exception e){
+System.out.println(e);
+}
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="c385b1fc-49fc-4e61-a646-71c4239643f2" class="">Output :-   </h3><figure id="138fc78b-542c-4216-b01e-ae725dec7908" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18a.png"><img style="width:1353px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18a.png"/></a></figure><figure id="d7598bc6-f89d-42cc-abe8-83863b506215" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18b.png"><img style="width:421px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18b.png"/></a></figure><figure id="1a217231-5c11-4537-8bd2-7012afd56871" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18c.png"><img style="width:446px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q18c.png"/></a></figure><p id="dddac0ba-37bb-4707-89bb-04589bded508" class="">
+</p><h3 id="449c915e-511e-493f-b714-57b918c019bb" class="">Q19. Develop a JSP Application to Authenticate User login as per registration details. If login<br/>success the forward user to Index Page otherwise show login failure Message.<br/></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="888e75e2-0195-41e3-a2f7-b9b7f211fd01" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%@ page import=&quot;java.io.*&quot; %&gt;
+&lt;%
+    int username = Integer.parseInt(request.getParameter(&quot;username&quot;));
+    String password = request.getParameter(&quot;password&quot;);
+
+    try {
+        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        Connection con = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;, &quot;root&quot;);
+        PreparedStatement ps = con.prepareStatement(&quot;select * from student where registerNo=? and password=?&quot;);
+        ps.setInt(1, username);
+        ps.setString(2, password);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            // Authentication successful, forward to index.jsp
+            response.sendRedirect(&quot;index.jsp&quot;);
+        } else {
+            // Authentication failed, display error message
+            out.println(&quot;Login failed. Please check your username and password.&quot;);
+        }
+        con.close();
+    } catch (Exception e) {
+        out.println(e);
+    }
+%&gt;
+</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9ba8779e-1a91-4205-b4f5-91dc04bdda10" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Login Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form action=&quot;loginValidation.jsp&quot; method=&quot;post&quot;&gt;
+        Username: &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
+        Password: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6cf53652-0a74-4603-ad65-9239f3ac9edf" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Index Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Welcome&lt;/h2&gt;
+    &lt;p&gt;You are logged in.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p id="66237535-8ad4-46ed-8d06-4e37de3a5d5e" class="">
+</p><h3 id="a5495793-8319-4630-8a77-d025a8e87e8b" class="">Q20. Write a web-based student registration application where students can register online with<br/>their enrolment numbers. The registered students should be able to log on to the site after<br/>getting registered. You are required to use JSP, Servlet and JDBC.<br/></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="051a59b2-1164-4451-b955-d389eaf14fec" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button &gt;&lt;a href=&quot;login.jsp&quot;&gt;Login&lt;/a&gt;&lt;/button&gt;
+&lt;button &gt;&lt;a href=&quot;register.jsp&quot;&gt;Register&lt;/a&gt;&lt;/button&gt;
+ 
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0dabef90-1866-4a70-88b1-698d91559f51" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;Login&quot; method=&quot;post&quot;&gt;
+&lt;input placeholder=&quot;Enter registeration number&quot; name=&quot;register&quot;&gt;
+&lt;input placeholder=&quot;Enter Password&quot; name=&quot;pass&quot;&gt;
+&lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="edde5a80-bbb6-4721-8c71-fb0091061813" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;%@ page import=&quot;java.io.*,java.sql.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Register&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;form action=&quot;Register&quot; method=&quot;post&quot;&gt;
+&lt;input name=&quot;register&quot; placeholder=&quot;enter 5 digit registeration no&quot;&gt;
+
+&lt;input type = &quot;password&quot; placeholder=&quot;Enter password&quot; name=&quot;pass&quot;&gt;
+&lt;input type=&quot;submit&quot;&gt;
+
+&lt;/form&gt;
+
+ 
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ece29c39-86b2-406e-91b7-278285856f8f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package mypackages;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+ 
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+ 
+@WebServlet(&quot;/Register&quot;)
+public class Register extends HttpServlet {
+public void service(HttpServletRequest req,HttpServletResponse resp) {
+
+int registerNo =Integer.parseInt( req.getParameter(&quot;register&quot;));
+String pass = req.getParameter(&quot;pass&quot;);
+
+try {
+PrintWriter pw = resp.getWriter();
+ 
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+Connection con = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+PreparedStatement psmt=con.prepareStatement(&quot;insert into student values(?,?)&quot;);
+psmt.setInt(1,registerNo);
+psmt.setString(2,pass);
+
+if(psmt.executeUpdate()&gt;0) {
+pw.write(&quot;Your Registeration Successfully done thank you...&quot;);
+}else {
+pw.write(&quot;Your registeration not done please try again...&quot;);
+}
+}catch(Exception e) {
+
+}
+}
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="290e2a62-9e1c-4838-ad95-d5d38988058f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package mypackages;
+import java.io.*;
+import java.sql.*;
+import java.util.HashMap;
+ 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+ 
+@WebServlet(&quot;/Login&quot;)
+public class Login extends HttpServlet{
+public void service(HttpServletRequest req, HttpServletResponse resp) {
+try {
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+int no = Integer.parseInt(req.getParameter(&quot;register&quot;));
+String pass = req.getParameter(&quot;pass&quot;);
+
+PrintWriter pw=null;
+pw=resp.getWriter();
+ 
+//connection
+Connection connect = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/studentdetails&quot;,&quot;root&quot;,&quot;root&quot;);
+
+PreparedStatement stmt = connect.prepareStatement(&quot;select * from student where registerNo=? AND password=?;&quot;);
+stmt.setInt(1,no);
+stmt.setString(2, pass);
+ResultSet rs=stmt.executeQuery();
+if(rs.next()) {
+RequestDispatcher rd = req.getRequestDispatcher(&quot;welcome.jsp&quot;);
+rd.forward(req,resp);
+}
+else {
+pw.write(&quot;please enter valid username and password&quot;);
+}
+
+}catch(Exception e) {System.out.println(e);
+}
+}
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ac5908cb-0225-4f6c-b529-e40c31218b39" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+   pageEncoding=&quot;ISO-8859-1&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome Here &lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="4809083a-d257-468c-8a23-401fa6a7df83" class="">Output: -</h3><p id="7760f407-5c49-44fd-b4e7-c46a42612cfc" class="">First registration will be done.</p><figure id="61e7778d-3bc6-44e7-8484-47188b46bb7a" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20a.png"><img style="width:398px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20a.png"/></a></figure><figure id="7c8ff77c-8ba5-4530-ab0e-32651e55b8a5" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20b.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20b.png"/></a></figure><p id="00ad5279-b8ee-40e1-b2d5-4c494c3e4203" class="">After clicking to Login button and entering the registration and password if that registerNO and password exist in database it will move to welcome.jsp page otherwise it will print please enter valid username and password.</p><figure id="a1864f7e-bda3-4b52-bf2a-752b15706151" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20c.png"><img style="width:708px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20c.png"/></a></figure><p id="86adfed3-3078-4f13-bd4a-3ff461eeb158" class="">If registration no. and password is true.</p><figure id="068afa6e-18c9-4ee6-a194-213b6afa4411" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20d.png"><img style="width:527px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20d.png"/></a></figure><p id="9527b62c-2bd6-4aca-98cc-c8ee23cad803" class="">If registration no or password is false.</p><figure id="7713315c-38a5-4277-9ac1-e7d9b07c416d" class="image"><a href="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20e.png"><img style="width:732px" src="Java%20Assignment%20final%20b896e29e9619431386ed51785b9b5520/Q20e.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
